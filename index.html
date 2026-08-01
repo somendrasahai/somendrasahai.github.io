@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Somendra Sahai — Technical Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EBEEE8;
+    --paper-line:#D7DDD3;
+    --card:#FBFCFA;
+    --ink:#20304A;
+    --ink-soft:#3B4A63;
+    --steel:#5C6A7C;
+    --blue:#2F6690;
+    --blue-soft:#EAF1F5;
+    --amber:#BE7126;
+    --rule:#C4CCC0;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px) 0 0/100% 42px,
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px) 0 0/42px 100%,
+      var(--paper);
+    background-blend-mode:normal;
+    color:var(--ink);
+    font-family:'Source Sans 3', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
+  a{color:var(--blue);}
+
+  /* ---- header ---- */
+  header.top{
+    position:sticky; top:0; z-index:10;
+    background:rgba(235,238,232,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  header.top .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:14px; padding-bottom:14px;
+  }
+  .brand{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+  }
+  nav.linklist{display:flex; gap:22px; font-family:'IBM Plex Mono', monospace; font-size:13px;}
+  nav.linklist a{color:var(--ink-soft); text-decoration:none; border-bottom:1px solid transparent;}
+  nav.linklist a:hover{border-bottom:1px solid var(--blue); color:var(--blue);}
+
+  /* ---- hero ---- */
+  .hero{padding:64px 0 40px;}
+  .hero .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--blue); margin-bottom:14px;
+  }
+  .hero h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:clamp(34px, 5vw, 52px);
+    margin:0 0 6px;
+    letter-spacing:-0.01em;
+  }
+  .hero .role{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:19px; color:var(--ink-soft); font-weight:500; margin-bottom:22px;
+  }
+  .hero p.lede{max-width:600px; color:var(--ink-soft); font-size:16.5px;}
+
+  /* dimension-line stat readout: the signature element */
+  .telemetry{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+    gap:0;
+    margin-top:38px;
+    border-top:1px solid var(--rule);
+  }
+  .stat{
+    padding:16px 18px 14px 0;
+    border-right:1px solid var(--rule);
+    position:relative;
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:26px; font-weight:600; color:var(--ink);
+    display:flex; align-items:center; gap:6px;
+  }
+  .stat .num::before{content:"⊢"; color:var(--amber); font-weight:400;}
+  .stat .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--steel); margin-top:4px;
+  }
+
+  /* ---- section headers ---- */
+  section{padding:56px 0;}
+  section.divider-top{border-top:1px solid var(--rule);}
+  .section-head{
+    display:flex; align-items:baseline; gap:14px; margin-bottom:34px;
+  }
+  .section-head .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--blue);
+    letter-spacing:0.1em; text-transform:uppercase;
+  }
+  .section-head h2{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:24px; margin:0;
+  }
+  .section-head::after{
+    content:""; flex:1; border-top:1px solid var(--rule); transform:translateY(-4px);
+  }
+
+  /* ---- case study spec sheet ---- */
+  .case{
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    margin-bottom:32px;
+    overflow:hidden;
+  }
+  .case-head{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+    gap:12px;
+    padding:20px 24px;
+    border-bottom:1px solid var(--rule);
+    background:linear-gradient(180deg, #F4F6F1, var(--card));
+  }
+  .case-head .id{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--steel);
+    letter-spacing:0.05em;
+  }
+  .case-head h3{
+    font-family:'Space Grotesk', sans-serif; font-size:20px; font-weight:600; margin:2px 0 0;
+  }
+  .case-head .meta{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--steel);
+  }
+  .status{
+    display:inline-block; padding:3px 9px;
+    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.05em;
+    background:var(--blue-soft); color:var(--blue); border-radius:2px; text-transform:uppercase;
+  }
+  .tags{display:flex; flex-wrap:wrap; gap:6px; padding:16px 24px 0;}
+  .tags span{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft);
+    border:1px solid var(--rule); padding:3px 8px; border-radius:2px;
+  }
+  .case-body{padding:20px 24px 26px; display:grid; gap:18px;}
+  .case-body .block h4{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--blue); margin:0 0 6px;
+  }
+  .case-body .block p, .case-body .block ul{margin:0; color:var(--ink-soft); font-size:15px;}
+  .case-body .block ul{padding-left:18px;}
+  .case-body .block ul li{margin-bottom:4px;}
+
+  .visual-slot{
+    border:1px dashed var(--rule);
+    background:repeating-linear-gradient(45deg, #F4F6F1, #F4F6F1 8px, #EFF1EB 8px, #EFF1EB 16px);
+    color:var(--steel);
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    padding:34px 16px; text-align:center; border-radius:2px;
+  }
+
+  .shot-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(120px, 1fr));
+    gap:10px;
+  }
+  .shot-gallery figure{margin:0; text-align:center;}
+  .shot-gallery img{
+    width:100%; height:auto; border-radius:2px;
+    border:1px solid var(--rule);
+    background:#fff;
+    cursor:zoom-in;
+    transition:transform 0.15s ease;
+  }
+  .shot-gallery img:hover{transform:translateY(-2px); border-color:var(--blue);}
+  .shot-gallery figcaption{
+    font-family:'IBM Plex Mono', monospace; font-size:10px; color:var(--steel);
+    margin-top:5px; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .link-slot{
+    border:1px solid var(--rule); border-radius:2px;
+    padding:14px 16px; font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    background:var(--blue-soft);
+  }
+  .link-slot a{font-weight:600;}
+
+  .impact-row{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(110px,1fr));
+    gap:14px; border-top:1px solid var(--rule); padding-top:16px;
+  }
+  .impact-row .num{
+    font-family:'IBM Plex Mono', monospace; font-size:19px; font-weight:600; color:var(--ink);
+  }
+  .impact-row .num::before{content:"⊢ "; color:var(--amber);}
+  .impact-row .label{
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--steel);
+    text-transform:uppercase; letter-spacing:0.05em;
+  }
+
+  /* ---- supporting projects ---- */
+  .support-grid{display:grid; gap:14px; grid-template-columns:1fr 1fr;}
+  @media (max-width:640px){.support-grid{grid-template-columns:1fr;}}
+  .support-card{
+    border:1px solid var(--rule); border-radius:2px; padding:16px 18px; background:var(--card);
+  }
+  .support-card h4{
+    font-family:'Space Grotesk', sans-serif; font-size:16px; margin:0 0 6px;
+  }
+  .support-card p{font-size:14px; color:var(--ink-soft); margin:0;}
+  .support-card .meta{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--steel); margin-bottom:8px;}
+
+  /* ---- expertise ---- */
+  .expertise-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .expertise-tags span{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    border:1px solid var(--rule); padding:5px 10px; border-radius:2px; color:var(--ink-soft);
+    background:var(--card);
+  }
+
+  /* ---- timeline ---- */
+  .timeline{border-top:1px solid var(--rule);}
+  .trow{
+    display:grid; grid-template-columns:150px 1fr; gap:18px;
+    padding:16px 0; border-bottom:1px solid var(--rule);
+  }
+  .trow .when{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--steel); padding-top:2px;}
+  .trow .role{font-family:'Space Grotesk', sans-serif; font-size:16px; font-weight:600;}
+  .trow .co{font-size:14px; color:var(--ink-soft);}
+
+  /* ---- footer / contact ---- */
+  footer{border-top:1px solid var(--rule); padding:48px 0 60px;}
+  footer h2{font-family:'Space Grotesk', sans-serif; font-size:26px; margin:0 0 10px;}
+  footer p{color:var(--ink-soft); max-width:520px; margin:0 0 22px;}
+  .contact-row{display:flex; flex-wrap:wrap; gap:22px; font-family:'IBM Plex Mono', monospace; font-size:14px;}
+  .contact-row a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--blue);}
+  .contact-row a:hover{color:var(--blue);}
+  .foot-note{margin-top:40px; font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--steel);}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">SOMENDRA SAHAI // TPM-DOSSIER</div>
+    <nav class="linklist">
+      <a href="#work">Work</a>
+      <a href="#pov">POV</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">Fintech · InsurTech · TravelTech · B2B SaaS</div>
+    <h1>Somendra Sahai</h1>
+    <div class="role">Technical Product Manager</div>
+    <p class="lede">I turn regulated, security-critical products — loans, insurance claims, enterprise workflows — into shipped software. 12+ years across mobile, platform modernization, and B2B SaaS, usually where product decisions and technical constraints have to be solved together.</p>
+
+    <div class="telemetry">
+      <div class="stat"><div class="num">12+</div><div class="label">Years in Product</div></div>
+      <div class="stat"><div class="num">5</div><div class="label">Companies · 0→1 to Enterprise</div></div>
+      <div class="stat"><div class="num">£2M</div><div class="label">Monthly Portfolio Owned</div></div>
+      <div class="stat"><div class="num">130K+</div><div class="label">Subscribers Migrated</div></div>
+      <div class="stat"><div class="num">100%</div><div class="label">Crash-Free Users, iOS/Android</div></div>
+    </div>
+  </section>
+
+  <section id="work" class="divider-top">
+    <div class="section-head">
+      <span class="tag">01</span>
+      <h2>Case Studies</h2>
+    </div>
+
+    <!-- CASE 1: Reevo -->
+    <article class="case">
+      <div class="case-head">
+        <div>
+          <div class="id">GOJOKO TECHNOLOGIES</div>
+          <h3>Reevo Mobile App — 0→1 Launch</h3>
+        </div>
+        <div><span class="status">Shipped · Live</span></div>
+      </div>
+      <div class="tags">
+        <span>0→1</span><span>Open Banking</span><span>MFA / Cognito</span><span>Device Security</span><span>iOS + Android</span><span>Jun 2024 – Jul 2026</span>
+      </div>
+      <div class="case-body">
+        <div class="block" style="background:var(--blue-soft); margin:-20px -24px 4px; padding:16px 24px; border-bottom:1px solid var(--rule);">
+          <h4>Background</h4>
+          <p style="color:var(--ink-soft);">The business wanted to push digital adoption up and pull operational cost down by cutting the volume of general-query support tickets. The case was that a mobile channel would compound in value the longer it existed, so building it now, well, was worth more than building it later, fast.</p>
+        </div>
+        <div class="block">
+          <h4>Context</h4>
+          <p>Technical Product Manager for Amplifi Capital, a UK-based fintech servicing a £2M monthly loan and fixed-savings portfolio. Owned the product end-to-end — MVP scope, roadmap, technical integration decisions (Amazon Cognito for auth, Twilio for SMS, Salesforce for CRM sync) and go-to-market readiness — partnering with C-suite, engineering, UX, compliance, legal and marketing. Led a distributed cross-functional squad of 15 across India and the UK.</p>
+        </div>
+        <div class="block">
+          <h4>Problem</h4>
+          <p>Customers could only self-service their loans through a web portal — no mobile option existed. That limited accessibility, and it was driving avoidable support volume from customers who expected an on-the-go experience. Any new app also had to satisfy strict security and compliance requirements from day one, not as a bolt-on.</p>
+        </div>
+        <div class="block">
+          <h4>Process</h4>
+          <ul>
+            <li>Owned roadmap, PRDs and release planning, using MoSCoW prioritization to balance business value, UX, platform security and engineering effort — and to get stakeholder alignment across two countries.</li>
+            <li>Sequenced a security-first backbone: Open Banking connectivity, card payments, Amazon Cognito MFA, device binding, secure storage migration, app integrity checks and compromised-device protection.</li>
+            <li>Reviewing App Store analytics, spotted an unexpected pattern of organic, pre-login downloads sitting alongside the invite-only rollout to existing customers. Hypothesized these were prospective borrowers arriving directly from Play Store / App Store search rather than the invite flow — and shipped a pre-login page that redirected them to a loans page. Confirmed the effect with an A/B test before rolling it out fully.</li>
+            <li>Used GA4, Firebase and Hotjar to track activation, feature adoption and retention against MAU/DAU, funnel and cohort metrics — balancing feature velocity against platform reliability throughout.</li>
+          </ul>
+        </div>
+        <div class="block">
+          <h4>Prioritization Call: Device Binding</h4>
+          <p>The business wanted device binding — auto-logging out a user's previous device the moment they logged in on a new one. I turned it down, and here's the actual comparison that drove it:</p>
+          <div style="border:1px solid var(--rule); border-radius:2px; overflow:hidden; margin:12px 0;">
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; background:var(--blue-soft); font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--blue);">
+              <div style="padding:8px 12px;">Feature</div>
+              <div style="padding:8px 12px; border-left:1px solid var(--rule);">Impact (analytics-backed)</div>
+              <div style="padding:8px 12px; border-left:1px solid var(--rule);">Effort</div>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-size:14px; border-top:1px solid var(--rule);">
+              <div style="padding:10px 12px; font-weight:600;">Device binding</div>
+              <div style="padding:10px 12px; border-left:1px solid var(--rule); color:var(--ink-soft);">Low — analytics showed very few customers logging in from multiple devices</div>
+              <div style="padding:10px 12px; border-left:1px solid var(--rule); color:var(--ink-soft);">Medium — 1–2 sprints</div>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; font-size:14px; border-top:1px solid var(--rule); background:#F7F9F5;">
+              <div style="padding:10px 12px; font-weight:600;">Other security work in queue</div>
+              <div style="padding:10px 12px; border-left:1px solid var(--rule); color:var(--ink-soft);">High — addressed live, broader-reaching risk exposure</div>
+              <div style="padding:10px 12px; border-left:1px solid var(--rule); color:var(--ink-soft);">Same capacity, competing for the same 1–2 sprints</div>
+            </div>
+          </div>
+          <p>Same engineering capacity, two options, one clearly lower-impact by the data we had. That bandwidth went into the higher-impact security work instead — a call I revisited every quarter as usage patterns shifted, since "low today" isn't "low forever."</p>
+        </div>
+        <div class="block">
+          <h4>Visuals</h4>
+          <div class="shot-gallery">
+            <figure><img src="reevo-images/reevo-home.png" alt="Reevo app home screen"><figcaption>Home</figcaption></figure>
+            <figure><img src="reevo-images/reevo-overview.png" alt="Reevo app loan overview screen"><figcaption>Loan Overview</figcaption></figure>
+            <figure><img src="reevo-images/reevo-details.png" alt="Reevo app loan details screen"><figcaption>Loan Details</figcaption></figure>
+            <figure><img src="reevo-images/reevo-activity.png" alt="Reevo app payment activity screen"><figcaption>Activity</figcaption></figure>
+            <figure><img src="reevo-images/reevo-payment.png" alt="Reevo app payment tab"><figcaption>Payment Tab</figcaption></figure>
+            <figure><img src="reevo-images/reevo-arrears.png" alt="Reevo app arrears and flexible repayment flow"><figcaption>Arrears Flow</figcaption></figure>
+            <figure><img src="reevo-images/reevo-profile-security.png" alt="Reevo app profile and security screen"><figcaption>Profile &amp; Security</figcaption></figure>
+          </div>
+        </div>
+        <div class="impact-row">
+          <div><div class="num">3,500+</div><div class="label">Downloads</div></div>
+          <div><div class="num">1,000</div><div class="label">MAUs</div></div>
+          <div><div class="num">70</div><div class="label">DAUs</div></div>
+          <div><div class="num">25%</div><div class="label">Email-to-app-download conversion (vs. 10% industry benchmark)</div></div>
+          <div><div class="num">40%</div><div class="label">Fewer support tickets</div></div>
+          <div><div class="num">10%</div><div class="label">Higher collections</div></div>
+          <div><div class="num">4 months</div><div class="label">0→1 time to market</div></div>
+          <div><div class="num">100%</div><div class="label">Crash-free users</div></div>
+        </div>
+        <div class="block">
+          <p style="font-size:14.5px;"><strong>What the 25% actually meant:</strong> At 2.5x the industry benchmark, it wasn't just a good number — it was proof that customers would accept the app as a primary channel, not a side option.</p>
+        </div>
+        <div class="block" style="border-top:1px solid var(--rule); padding-top:14px;">
+          <h4>Beyond the App: Platform-Wide Improvements</h4>
+          <ul>
+            <li>65% fewer misrouted tickets via a Salesforce Omni-Channel implementation.</li>
+            <li>30% fewer complaint follow-ups through Salesforce Case Management.</li>
+            <li>Zero security incidents post-MFA rollout, with 50% user adoption.</li>
+            <li>75% of customers renewed fixed savings products through automation.</li>
+          </ul>
+        </div>
+        <div class="block" style="border-top:1px solid var(--rule); padding-top:14px;">
+          <h4>In Hindsight</h4>
+          <p>I'd have pulled mobile number verification earlier into the loan disbursement process itself. Verifying the number at disbursement — rather than as a separate pre-MFA step in the app — would have removed a redundant verification stage and shortened the onboarding path to first login.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 2: Techstreet -->
+    <article class="case">
+      <div class="case-head">
+        <div>
+          <div class="id">INNODATA INDIA</div>
+          <h3>Techstreet Platform Modernization</h3>
+        </div>
+        <div><span class="status">Shipped · Migrated</span></div>
+      </div>
+      <div class="tags">
+        <span>Legacy Migration</span><span>Oracle→MongoDB</span><span>Ruby→Java</span><span>REST APIs</span><span>Enterprise</span><span>Sep 2021 – Jun 2024</span>
+      </div>
+      <div class="case-body">
+        <div class="block" style="background:var(--blue-soft); margin:-20px -24px 4px; padding:16px 24px; border-bottom:1px solid var(--rule);">
+          <h4>Background</h4>
+          <p style="color:var(--ink-soft);">Techstreet is a reseller of standards documents which was running on a legacy architecture. The legacy Oracle/Ruby stack was actively constraining the product: character-length limits and poor handling of special characters were surfacing as real customer-facing defects, and the stack had a scaling ceiling. Moreover, Ruby on Rails talent was getting harder to hire, which meant the "do nothing" option had a rising cost of its own.</p>
+        </div>
+        <div class="block">
+          <h4>Context</h4>
+          <p>Product Owner for Techstreet's standards-management platform, serving 130,000+ subscribers across 150+ industries — a system with over a decade of accumulated legacy workflow logic.</p>
+        </div>
+        <div class="block">
+          <h4>Problem</h4>
+          <p>The platform ran on an aging Oracle/Ruby stack with hard technical ceilings — character-length limits, weak special-character handling, and scaling limitations — plus a shrinking talent pool for Ruby on Rails. A complete tech overhaul was needed, without breaking the document lifecycle that 12 major Standard Development Organizations depended on.</p>
+        </div>
+        <div class="block">
+          <h4>Process</h4>
+          <ul>
+            <li>Defined the product roadmap and migration strategy for the platform modernization, treating it as a product problem, not just an infrastructure swap.</li>
+            <li>Worked directly with stakeholders to unpack complex legacy workflows and translate them into scalable product requirements covering the entire standards-document lifecycle — ingestion through repository management.</li>
+            <li>Sequenced onboarding of 12 major Standard Development Organizations onto the modernized platform, coordinating UAT alongside new customer onboarding.</li>
+          </ul>
+        </div>
+        <div class="block">
+          <h4>Where It Could Have Gone Wrong</h4>
+          <p>The highest-risk point wasn't the new stack — it was the field mapping between the legacy Oracle/Ruby schema and the new MongoDB/Java model. Get that wrong and downstream data silently breaks. To de-risk it, we didn't treat internal QA as the finish line: we required a formal UAT pass directly from the client before any deployment, so mapping errors surfaced against real client data, not just our own test cases.</p>
+        </div>
+        <div class="block">
+          <h4>The Hard Part</h4>
+          <p>Normalizing data across sources was harder than the migration itself. Each Standard Development Organization fed data independently and used different field names for conceptually identical data. Designing a single uniform data structure that could absorb all of them, without losing organization-specific nuance, took more iteration than the technical replatform did.</p>
+        </div>        
+        <div class="impact-row">
+          <div><div class="num">20%</div><div class="label">Revenue growth</div></div>
+          <div><div class="num">95%</div><div class="label">UAT success</div></div>
+          <div><div class="num">4.9/5</div><div class="label">CSAT</div></div>
+          <div><div class="num">12</div><div class="label">SDOs onboarded</div></div>
+        </div>
+        <div class="block">
+          <p style="font-size:14.5px;"><strong>What the 20% actually meant:</strong> The growth came specifically from onboarding 2 new customers onto the modernized platform — proof the new architecture could actually absorb net-new customers, not just carry the existing 12. That's the difference between "we migrated successfully" and "we now have a platform we can scale into growth," which is what justified the investment into the modernization.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 3: JustEZ -->
+    <article class="case">
+      <div class="case-head">
+        <div>
+          <div class="id">EXZEO SOFTWARE</div>
+          <h3>JustEZ Inspection Mobile App</h3>
+        </div>
+        <div><span class="status">Pre-Launch · Handed Off</span></div>
+      </div>
+      <div class="tags">
+        <span>Discovery</span><span>MVP Definition</span><span>Computer Vision</span><span>Field Ops</span><span>Oct 2018 – Sep 2021</span>
+      </div>
+      <div class="case-body">
+        <div class="block">
+          <h4>Context</h4>
+          <p>Lead Business Analyst / Product Owner for JustEZ, a claims-inspection mobile app for P&amp;C insurance adjusters. Owned the product through discovery, MVP definition, backlog build-out and development.</p>
+        </div>
+        <div class="block">
+          <h4>Problem</h4>
+          <p>Adjusters lacked a purpose-built field tool — inspection scheduling, routing, media capture and reporting were fragmented across disconnected systems, slowing down claims verification and processing.</p>
+        </div>
+        <div class="block">
+          <h4>Process</h4>
+          <ul>
+            <li>Ran product discovery through user interviews and surveys with adjusters and claim supervisors to define the MVP and validate real field needs before writing requirements.</li>
+            <li>Owned the backlog and prioritization across claims-platform integration, Google Maps &amp; Apple Maps navigation, Dropbox integration, inspection scheduling, media capture, digital sketching and field notes.</li>
+            <li>Conceived and prioritized a route-optimization feature using shortest-path and inspection-time algorithms to cut wasted travel between field visits, validated against prototypes with adjusters.</li>
+            <li>Partnered with the Data Science team to define AI-powered computer vision for automatic image titling as part of the roadmap.</li>
+          </ul>
+        </div>
+        <div class="block">
+          <h4>What the Interviews Surfaced</h4>
+          <p>Going in, I expected the biggest pain point to be inspection itself. Instead, adjusters told us they were losing significant time just planning their day and navigating inefficient routes between sites — a problem I hadn't scoped for at the start. That finding is what led to prioritizing a day planner built on shortest-path and least-time routing, rather than treating it as a nice-to-have.</p>
+        </div>
+        <div class="block">
+          <div class="link-slot">The app was shipped after this role and is live today on iOS and Android as <strong>JustEZ</strong> — <a href="https://www.justez.app/" target="_blank" rel="noopener">justez.app</a>. Its current feature set (claims sync, route/appointment scheduling, AI photo captioning, scoping reports) tracks closely with the MVP and roadmap defined during this engagement, though later delivery wasn't part of this role.</div>
+        </div>
+        <div class="impact-row">
+          <div><div class="num">✓</div><div class="label">MVP defined &amp; prototype-validated with adjusters</div></div>
+          <div><div class="num">✓</div><div class="label">Route optimization designed</div></div>
+          <div><div class="num">✓</div><div class="label">CV auto-titling scoped with Data Science</div></div>
+        </div>
+        <p style="font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--steel); margin:2px 0 0;">Note: Role ended before public launch — impact reflects discovery and design work, not live usage data.</p>
+      </div>
+    </article>
+
+        <!-- SUPPORTING PROJECTS -->
+    <div class="section-head" style="margin-top:48px;">
+      <span class="tag">01.1</span>
+      <h2 style="font-size:18px;">Supporting Work</h2>
+    </div>
+    <div class="support-grid">
+      <div class="support-card">
+        <div class="meta">INTERGLOBE TECHNOLOGIES · Jan 2017 – Oct 2018</div>
+        <h4>Expedia Operations Platform</h4>
+        <p>Replaced a spreadsheet-based request process with a centralized platform integrating Amadeus, Sabre and Travelport, processing 4M+ manual requests annually for 2,000+ Expedia agents. Supported presales that helped land two enterprise customers across EMEA and APAC.</p>
+      </div>
+      <div class="support-card">
+        <div class="meta">DRISHTI SOFT SOLUTIONS · Aug 2014 – Dec 2016</div>
+        <h4>AI Speech Analytics for Airtel Africa</h4>
+        <p>Collaborated with Carnegie Mellon University to build an AI-enabled speech analytics platform, applying early ML/NLP techniques to telecom call data.</p>
+        </div>
+        <div class="support-card">
+        <div class="meta">DRISHTI SOFT SOLUTIONS · Aug 2014 – Dec 2016</div>
+        <h4>Dncindia — API to Subscription SaaS</h4>
+        <p>Turned an existing pay-per-use DNC-scrubbing API into a tiered subscription product — pricing based on daily scrub volume and support level. Increased MRR by 50%, with no pushback from sales or existing customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pov" class="divider-top">
+    <div class="section-head">
+      <span class="tag">02</span>
+      <h2>How I Think About Product</h2>
+    </div>
+    <div style="display:grid; gap:20px; grid-template-columns:1fr 1fr;">
+      <div class="support-card" style="padding:20px 22px;">
+        <h4 style="margin-bottom:10px;">Calculated risk over analysis paralysis</h4>
+        <p>I'd rather ship a well-reasoned bet on incomplete information than wait for certainty that never arrives. In regulated, security-heavy products this is a live tension — but the cost of a late feature compounds the same way the cost of a bad one does. My job is to make the risk visible and calculated, not to eliminate it.</p>
+      </div>
+      <div class="support-card" style="padding:20px 22px;">
+        <h4 style="margin-bottom:10px;">Stakeholder alignment is a scheduling problem, not just a people problem</h4>
+        <p>Across every company I've worked at, the recurring failure mode isn't disagreement — it's a function like legal or compliance having other priorities and engaging too late to shape the plan. On Reevo, legal wasn't focused on the mobile app early on; getting them engaged before requirements were locked, not after, was what kept delivery on track. I now treat "who needs to be in the room early" as a roadmap decision, not an afterthought.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise" class="divider-top">
+    <div class="section-head">
+      <span class="tag">03</span>
+      <h2>Core Expertise</h2>
+    </div>
+    <div class="expertise-tags">
+      <span>Product Strategy</span><span>Product Discovery</span><span>Roadmap Ownership</span><span>PRDs / BRDs</span>
+      <span>Stakeholder Management</span><span>Cross-functional Leadership</span><span>Backlog Prioritization</span>
+      <span>GTM</span><span>AI-enabled Products</span><span>A/B Testing</span><span>Funnel Analysis</span>
+      <span>Cohort Analysis</span><span>North Star Metrics</span><span>Event Tracking</span><span>REST APIs</span>
+      <span>Security &amp; Identity</span><span>Open Banking</span><span>SQL</span><span>GA4</span><span>Firebase</span>
+      <span>Salesforce</span><span>Figma</span><span>Jira</span><span>Agile / Scrum</span>
+    </div>
+  </section>
+
+  <section id="experience" class="divider-top">
+    <div class="section-head">
+      <span class="tag">04</span>
+      <h2>Experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="trow">
+        <div class="when">Jun 2024 – Jul 2026</div>
+        <div><div class="role">Technical Product Manager</div><div class="co">Gojoko Technologies, Noida</div></div>
+      </div>
+      <div class="trow">
+        <div class="when">Sep 2021 – Jun 2024</div>
+        <div><div class="role">Senior Business Analyst / Product Owner</div><div class="co">Innodata India Pvt Ltd, Noida</div></div>
+      </div>
+      <div class="trow">
+        <div class="when">Oct 2018 – Sep 2021</div>
+        <div><div class="role">Lead Business Analyst / Product Owner</div><div class="co">Exzeo Software Pvt Ltd, Noida</div></div>
+      </div>
+      <div class="trow">
+        <div class="when">Jan 2017 – Oct 2018</div>
+        <div><div class="role">Senior Business Analyst / Product Manager</div><div class="co">Interglobe Technologies Ltd, Gurgaon</div></div>
+      </div>
+      <div class="trow">
+        <div class="when">Aug 2014 – Dec 2016</div>
+        <div><div class="role">Assistant Product Manager</div><div class="co">Drishti Soft Solutions Pvt Ltd, Gurgaon</div></div>
+      </div>
+      <div class="trow">
+        <div class="when">2013 – 2014</div>
+        <div><div class="role">Wealth Manager – Premier</div><div class="co">ICICI Securities Ltd, Gurgaon</div></div>
+      </div>
+      <div class="trow">
+        <div class="when">2011 – 2013</div>
+        <div><div class="role">PGDM, Marketing</div><div class="co">Birla Institute of Management Technology</div></div>
+      </div>
+      <div class="trow" style="border-bottom:none;">
+        <div class="when">2008 – 2011</div>
+        <div><div class="role">Design Engineer</div><div class="co">Honeywell Automation India Ltd, Pune</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <h2>Let's talk product.</h2>
+    <p>Open to Senior / Staff / Technical Product Manager roles where product strategy, platform thinking, and execution come together.</p>
+    <div class="contact-row">
+      <a href="mailto:somendra.sahai@gmail.com">somendra.sahai@gmail.com</a>
+      <a href="tel:+918010757958">+91 8010757958</a>
+      <a href="https://www.linkedin.com/in/somendra-sahai-9010961a" target="_blank" rel="noopener">linkedin.com/in/somendra-sahai-9010961a</a>
+    </div>
+    <div class="foot-note">PGDM, Marketing — Birla Institute of Management Technology · B.Tech, Electronics &amp; Instrumentation — AKTU · CSPO · CSM · GA4 Certified</div>
+  </footer>
+
+</div>
+</body>
+</html>
