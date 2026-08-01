@@ -178,23 +178,23 @@
   }
 
   .shot-gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(120px, 1fr));
-    gap:10px;
-  }
-  .shot-gallery figure{margin:0; text-align:center;}
-  .shot-gallery img{
-    width:100%; height:auto; border-radius:2px;
-    border:1px solid var(--rule);
-    background:#fff;
-    cursor:zoom-in;
-    transition:transform 0.15s ease;
-  }
-  .shot-gallery img:hover{transform:translateY(-2px); border-color:var(--blue);}
-  .shot-gallery figcaption{
-    font-family:'IBM Plex Mono', monospace; font-size:10px; color:var(--steel);
-    margin-top:5px; text-transform:uppercase; letter-spacing:0.04em;
-  }
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  align-items:flex-start;
+}
+.shot-gallery figure{margin:0; text-align:center;}
+.shot-gallery img{
+  height:260px;
+  width:auto;
+  max-width:100%;
+  border-radius:2px;
+  border:1px solid var(--rule);
+  background:#fff;
+  cursor:zoom-in;
+  transition:transform 0.15s ease;
+  display:block;
+}
   .link-slot{
     border:1px solid var(--rule); border-radius:2px;
     padding:14px 16px; font-family:'IBM Plex Mono', monospace; font-size:12.5px;
@@ -350,17 +350,17 @@
           <p>Same engineering capacity, two options, one clearly lower-impact by the data we had. That bandwidth went into the higher-impact security work instead — a call I revisited every quarter as usage patterns shifted, since "low today" isn't "low forever."</p>
         </div>
         <div class="block">
-          <h4>Visuals</h4>
-          <div class="shot-gallery">
-            <figure><img src="reevo-home.png" alt="Reevo app home screen"><figcaption>Home</figcaption></figure>
-            <figure><img src="reevo-overview.png" alt="Reevo app loan overview screen"><figcaption>Loan Overview</figcaption></figure>
-            <figure><img src="reevo-details.png" alt="Reevo app loan details screen"><figcaption>Loan Details</figcaption></figure>
-            <figure style="grid-column: span 2;"><img src="reevo-activity.png" alt="Reevo app payment activity screen"><figcaption>Activity</figcaption></figure>
-            <figure><img src="reevo-payment.png" alt="Reevo app payment tab"><figcaption>Payment Tab</figcaption></figure>
-            <figure style="grid-column: span 2;"><img src="reevo-arrears.png" alt="Reevo app arrears and flexible repayment flow"><figcaption>Arrears Flow</figcaption></figure>
-            <figure><img src="reevo-profile-security.png" alt="Reevo app profile and security screen"><figcaption>Profile &amp; Security</figcaption></figure>
-          </div>
-        </div>
+  <h4>Visuals</h4>
+  <div class="shot-gallery">
+    <figure><img src="Homepage.png" alt="Reevo app home screen"><figcaption>Home</figcaption></figure>
+    <figure><img src="Overview.png" alt="Reevo app loan overview screen"><figcaption>Loan Overview</figcaption></figure>
+    <figure><img src="Details.png" alt="Reevo app loan details screen"><figcaption>Loan Details</figcaption></figure>
+    <figure><img src="Activity.png" alt="Reevo app payment activity screen"><figcaption>Activity</figcaption></figure>
+    <figure><img src="Payment.png" alt="Reevo app payment tab"><figcaption>Payment Tab</figcaption></figure>
+    <figure><img src="Repayments.png" alt="Reevo app arrears and flexible repayment flow"><figcaption>Arrears Flow</figcaption></figure>
+    <figure><img src="reevo-profile-security.png" alt="Reevo app profile and security screen"><figcaption>Profile &amp; Security</figcaption></figure>
+  </div>
+</div>
         <div class="impact-row">
           <div><div class="num">3,500+</div><div class="label">Downloads</div></div>
           <div><div class="num">1,000</div><div class="label">MAUs</div></div>
